@@ -1,0 +1,60 @@
+[0.125s] Invoking command in 'D:\College\capstone_ws\build\mecanum_description': C:\Program Files\CMake\bin\cmake.EXE D:\College\capstone_ws\src\mecanum_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=D:\College\capstone_ws\install
+[0.141s] -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.19044.
+[0.172s] -- Found ament_cmake: 1.3.2 (C:/ros2/ros2-windows/share/ament_cmake/cmake)
+[2.688s] -- Found Python3: C:/Python38/python.exe (found version "3.8.3") found components: Interpreter 
+[2.797s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.953s] -- Found urdf: 2.6.0 (C:/ros2/ros2-windows/share/urdf/cmake)
+[3.203s] -- Found TinyXML2 via Config file: C:/ProgramData/chocolatey/lib/tinyxml2/share/cmake
+[3.360s] -- Configuring done
+[3.422s] -- Generating done
+[3.438s] -- Build files have been written to: D:/College/capstone_ws/build/mecanum_description
+[3.438s] Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': C:\Program Files\CMake\bin\cmake.EXE D:\College\capstone_ws\src\mecanum_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=D:\College\capstone_ws\install
+[3.438s] Invoking command in 'D:\College\capstone_ws\build\mecanum_description': CL=/MP C:\Program Files\CMake\bin\cmake.EXE --build D:\College\capstone_ws\build\mecanum_description --config Release
+[3.547s] Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+[3.547s] Copyright (C) Microsoft Corporation. All rights reserved.
+[3.547s] 
+[3.875s]   Checking Build System
+[4.000s]   Building Custom Rule D:/College/capstone_ws/src/mecanum_description/CMakeLists.txt
+[4.063s] Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': CL=/MP C:\Program Files\CMake\bin\cmake.EXE --build D:\College\capstone_ws\build\mecanum_description --config Release
+[4.078s] Invoking command in 'D:\College\capstone_ws\build\mecanum_description': C:\Program Files\CMake\bin\cmake.EXE --install D:\College\capstone_ws\build\mecanum_description --config Release
+[4.110s] -- Execute custom install script
+[4.110s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Arm_01-r4_1.stl
+[4.125s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Arm_02_v3-r4_1.stl
+[4.157s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Arm_03-r4_1.stl
+[4.157s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Gripper_base-r4_1.stl
+[4.188s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Gripper_finger-r4_1.stl
+[4.203s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Gripper_finger-r4_2.stl
+[4.219s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_1.stl
+[4.235s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_2.stl
+[4.250s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_1.stl
+[4.266s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_2.stl
+[4.282s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Servo_Motor_MG996R-r4_2.stl
+[4.297s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Servo_Motor_MG996R-r4_3.stl
+[4.313s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Servo_Motor_Micro__9g-r4_2.stl
+[4.328s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Servo_Motor_Micro__9g-r4_3.stl
+[4.344s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/Waist-r4_1.stl
+[4.360s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/base_link.stl
+[4.375s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/gear1-r4_1.stl
+[4.391s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/gear2-r4_1.stl
+[4.407s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/grip_link_1-r4_1.stl
+[4.422s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/grip_link_1-r4_2.stl
+[4.438s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/grip_link_1-r4_3.stl
+[4.453s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/meshes/grip_link_1-r4_4.stl
+[4.469s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/urdf/materials.xacro
+[4.485s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/urdf/mecanum.trans
+[4.500s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/urdf/mecanum.xacro
+[4.516s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/launch/robot_description.launch.py
+[4.532s] -- Symlinking: D:/College/capstone_ws/install/share/ament_index/resource_index/package_run_dependencies/mecanum_description
+[4.547s] -- Symlinking: D:/College/capstone_ws/install/share/ament_index/resource_index/parent_prefix_path/mecanum_description
+[4.563s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/environment/ament_prefix_path.bat
+[4.578s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/environment/ament_prefix_path.dsv
+[4.594s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/environment/path.bat
+[4.610s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/environment/path.dsv
+[4.641s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/local_setup.bat
+[4.641s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/local_setup.dsv
+[4.657s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/package.dsv
+[4.672s] -- Symlinking: D:/College/capstone_ws/install/share/ament_index/resource_index/packages/mecanum_description
+[4.688s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/cmake/mecanum_descriptionConfig.cmake
+[4.703s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/cmake/mecanum_descriptionConfig-version.cmake
+[4.735s] -- Symlinking: D:/College/capstone_ws/install/share/mecanum_description/package.xml
+[4.750s] Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': C:\Program Files\CMake\bin\cmake.EXE --install D:\College\capstone_ws\build\mecanum_description --config Release

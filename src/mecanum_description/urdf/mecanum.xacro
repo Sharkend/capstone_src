@@ -1,0 +1,391 @@
+<?xml version="1.0" ?>
+<robot name="mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mecanum_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mecanum_description)/urdf/mecanum.trans" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.15000000000002084 -0.06797027234125849 0.0355880237291439" rpy="0 0 0"/>
+    <mass value="8.777128082724442"/>
+    <inertia ixx="0.030708" iyy="0.085311" izz="0.102783" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mecanum_Wheel_Assembly_Right-r4_1">
+  <inertial>
+    <origin xyz="-1.5129569133368048e-05 0.026870032144622125 5.42477174292344e-11" rpy="0 0 0"/>
+    <mass value="0.9525240556329165"/>
+    <inertia ixx="0.000492" iyy="0.000705" izz="0.000492" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.045 -0.01003 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.045 -0.01003 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mecanum_Wheel_Assembly_Left-r4_2">
+  <inertial>
+    <origin xyz="-1.5036421291282631e-05 -0.026897988073681378 8.703700954404425e-11" rpy="0 0 0"/>
+    <mass value="0.9584295019990953"/>
+    <inertia ixx="0.000493" iyy="0.000706" izz="0.000493" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.045 0.14597 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.045 0.14597 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mecanum_Wheel_Assembly_Left-r4_1">
+  <inertial>
+    <origin xyz="-8.703737730542116e-11 0.02689744339116402 1.5036421291140384e-05" rpy="0 0 0"/>
+    <mass value="0.9584295019990953"/>
+    <inertia ixx="0.000493" iyy="0.000706" izz="0.000493" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.255 -0.01003 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.255 -0.01003 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mecanum_Wheel_Assembly_Right-r4_2">
+  <inertial>
+    <origin xyz="-1.5129572465022445e-05 -0.026870576827139225 -5.3343097300428965e-11" rpy="0 0 0"/>
+    <mass value="0.9525240556329165"/>
+    <inertia ixx="0.000492" iyy="0.000705" izz="0.000492" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.255 0.14597 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.255 0.14597 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Waist-r4_1">
+  <inertial>
+    <origin xyz="0.0013721085407133876 0.006434224735784519 0.02588946449425461" rpy="0 0 0"/>
+    <mass value="0.5340963741858208"/>
+    <inertia ixx="0.000353" iyy="0.000456" izz="0.000429" ixy="-5e-06" iyz="-4.1e-05" ixz="-4.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09075 0.06797 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Waist-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque065235"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09075 0.06797 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Waist-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_01-r4_1">
+  <inertial>
+    <origin xyz="0.007276400463639754 -0.009968475020895304 0.05829216132803776" rpy="0 0 0"/>
+    <mass value="0.5054466041806499"/>
+    <inertia ixx="0.00085" iyy="0.000903" izz="8.7e-05" ixy="0.0" iyz="-1e-06" ixz="-0.000107"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076831 0.06397 -0.119876" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_01-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque065235"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076831 0.06397 -0.119876" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_01-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_02_v3-r4_1">
+  <inertial>
+    <origin xyz="0.03921280162495297 0.010608631397993729 0.0024152394126248367" rpy="0 0 0"/>
+    <mass value="0.3946102743313452"/>
+    <inertia ixx="7.4e-05" iyy="0.000456" izz="0.000428" ixy="-2e-06" iyz="-0.0" ixz="-2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.061478 0.06617 -0.239044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_02_v3-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque31107255"/>
+  </visual>
+  <collision>
+    <origin xyz="0.061478 0.06617 -0.239044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_02_v3-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_03-r4_1">
+  <inertial>
+    <origin xyz="0.019380128166351606 -0.005113707745337925 0.006262692412963039" rpy="0 0 0"/>
+    <mass value="0.129528136691123"/>
+    <inertia ixx="2.1e-05" iyy="3.9e-05" izz="3.1e-05" ixy="5e-06" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.028414 0.05547 -0.238885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_03-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque31107255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.028414 0.05547 -0.238885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Arm_03-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gripper_base-r4_1">
+  <inertial>
+    <origin xyz="0.017263361463318645 9.66224813629818e-05 -0.017054462347772692" rpy="0 0 0"/>
+    <mass value="0.12341304164534714"/>
+    <inertia ixx="4.2e-05" iyy="5.7e-05" izz="4.1e-05" ixy="-7e-06" iyz="8e-06" ixz="2.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.057925 0.069317 -0.245912" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_base-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.057925 0.069317 -0.245912" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_base-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gripper_finger-r4_2">
+  <inertial>
+    <origin xyz="0.01030198502563548 0.005041203073966563 -0.025098971653193164" rpy="0 0 0"/>
+    <mass value="0.04236978910676512"/>
+    <inertia ixx="1e-05" iyy="1.3e-05" izz="4e-06" ixy="-1e-06" iyz="1e-06" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.105717 0.098932 -0.202174" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_finger-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.105717 0.098932 -0.202174" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_finger-r4_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gripper_finger-r4_1">
+  <inertial>
+    <origin xyz="0.010192617690079106 -0.0072800365096166025 -0.024589200476342027" rpy="0 0 0"/>
+    <mass value="0.04236978910676512"/>
+    <inertia ixx="1e-05" iyy="1.3e-05" izz="5e-06" ixy="1e-06" iyz="-2e-06" ixz="5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.10585 0.036376 -0.200276" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_finger-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.10585 0.036376 -0.200276" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/Gripper_finger-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gear1-r4_1">
+  <inertial>
+    <origin xyz="0.007238922536235301 -0.002803673262794737 -0.0012135769318998013" rpy="0 0 0"/>
+    <mass value="0.020736664284343446"/>
+    <inertia ixx="3e-06" iyy="2e-06" izz="2e-06" ixy="1e-06" iyz="-1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.089696 0.080453 -0.221139" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/gear1-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.089696 0.080453 -0.221139" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/gear1-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gear2-r4_1">
+  <inertial>
+    <origin xyz="0.00729082921388266 0.002732550226373101 -0.0014467237383747888" rpy="0 0 0"/>
+    <mass value="0.020141998404349184"/>
+    <inertia ixx="3e-06" iyy="2e-06" izz="2e-06" ixy="-1e-06" iyz="1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.089739 0.053564 -0.220346" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/gear2-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.089739 0.053564 -0.220346" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/gear2-r4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="wheel_fl" type="continuous">
+  <origin xyz="-0.045 0.01003 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Mecanum_Wheel_Assembly_Right-r4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_fr" type="continuous">
+  <origin xyz="-0.045 -0.14597 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Mecanum_Wheel_Assembly_Left-r4_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_bl" type="continuous">
+  <origin xyz="-0.255 0.01003 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Mecanum_Wheel_Assembly_Left-r4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_br" type="continuous">
+  <origin xyz="-0.255 -0.14597 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Mecanum_Wheel_Assembly_Right-r4_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rev_waist" type="continuous">
+  <origin xyz="-0.09075 -0.06797 0.071" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Waist-r4_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="rev_shoulder" type="continuous">
+  <origin xyz="0.013919 0.004 0.048876" rpy="0 0 0"/>
+  <parent link="Waist-r4_1"/>
+  <child link="Arm_01-r4_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="rev_elbow" type="continuous">
+  <origin xyz="0.015353 -0.0022 0.119168" rpy="0 0 0"/>
+  <parent link="Arm_01-r4_1"/>
+  <child link="Arm_02_v3-r4_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="rev_wrist" type="continuous">
+  <origin xyz="0.089892 0.0107 -0.000159" rpy="0 0 0"/>
+  <parent link="Arm_02_v3-r4_1"/>
+  <child link="Arm_03-r4_1"/>
+  <axis xyz="0.998519 0.0 0.054413"/>
+</joint>
+
+<joint name="rev_effector" type="continuous">
+  <origin xyz="0.029511 -0.013847 0.007027" rpy="0 0 0"/>
+  <parent link="Arm_03-r4_1"/>
+  <child link="Gripper_base-r4_1"/>
+  <axis xyz="0.001606 0.999564 -0.029478"/>
+</joint>
+
+<joint name="rfinger_mimic" type="continuous">
+  <origin xyz="0.016021 -0.018479 -0.018965" rpy="0 0 0"/>
+  <parent link="gear1-r4_1"/>
+  <child link="Gripper_finger-r4_2"/>
+  <axis xyz="-0.852736 -0.014028 -0.522154"/>
+</joint>
+
+<joint name="lfinger_mimic" type="continuous">
+  <origin xyz="0.016111 0.017188 -0.02007" rpy="0 0 0"/>
+  <parent link="gear2-r4_1"/>
+  <child link="Gripper_finger-r4_1"/>
+  <axis xyz="0.852736 0.014028 0.522154"/>
+</joint>
+
+<joint name="rgear" type="continuous">
+  <origin xyz="0.031771 -0.011136 -0.024773" rpy="0 0 0"/>
+  <parent link="Gripper_base-r4_1"/>
+  <child link="gear1-r4_1"/>
+  <axis xyz="0.852736 0.014028 0.522154"/>
+</joint>
+
+<joint name="lgear" type="continuous">
+  <origin xyz="0.031814 0.015753 -0.025566" rpy="0 0 0"/>
+  <parent link="Gripper_base-r4_1"/>
+  <child link="gear2-r4_1"/>
+  <axis xyz="0.852736 0.014028 0.522154"/>
+</joint>
+
+</robot>

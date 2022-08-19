@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\College\capstone_ws\build\mecanum_description\CMakeFiles\46382bcff48a675f43976e0a762eede7\mecanum_description_uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\College\capstone_ws\src\mecanum_description\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\College\capstone_ws\build\mecanum_description\CMakeFiles\mecanum_description_uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{20304BBD-8A3A-32FF-AB5E-CE71B19D69B1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

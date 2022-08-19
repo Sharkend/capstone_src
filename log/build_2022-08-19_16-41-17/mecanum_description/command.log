@@ -1,0 +1,6 @@
+Invoking command in 'D:\College\capstone_ws\build\mecanum_description': C:\Program Files\CMake\bin\cmake.EXE D:\College\capstone_ws\src\mecanum_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=D:\College\capstone_ws\install
+Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': C:\Program Files\CMake\bin\cmake.EXE D:\College\capstone_ws\src\mecanum_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=D:\College\capstone_ws\install
+Invoking command in 'D:\College\capstone_ws\build\mecanum_description': CL=/MP C:\Program Files\CMake\bin\cmake.EXE --build D:\College\capstone_ws\build\mecanum_description --config Release
+Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': CL=/MP C:\Program Files\CMake\bin\cmake.EXE --build D:\College\capstone_ws\build\mecanum_description --config Release
+Invoking command in 'D:\College\capstone_ws\build\mecanum_description': C:\Program Files\CMake\bin\cmake.EXE --install D:\College\capstone_ws\build\mecanum_description --config Release
+Invoked command in 'D:\College\capstone_ws\build\mecanum_description' returned '0': C:\Program Files\CMake\bin\cmake.EXE --install D:\College\capstone_ws\build\mecanum_description --config Release
