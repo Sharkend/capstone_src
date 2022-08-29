@@ -362,7 +362,7 @@
 
 <joint name="rfinger_mimic" type="continuous">
   <origin xyz="0.016021 -0.018479 -0.018965" rpy="0 0 0"/>
-  <mimic joint="rgear" multiplier="-1"/>
+  <mimic joint="rgear" multiplier="1"/>
   <parent link="gear1-r4_1"/>
   <child link="Gripper_finger-r4_2"/>
   <axis xyz="-0.852736 -0.014028 -0.522154"/>
