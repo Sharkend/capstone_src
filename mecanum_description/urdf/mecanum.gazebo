@@ -1,0 +1,189 @@
+<?xml version="1.0" ?>
+<robot name="mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- IMU, LIDAR -->
+
+<link name="lidar_front_1">
+  <inertial>
+    <origin xyz="0.002499999999999972 -2.723412585170504e-07 -9.71445146547012e-17" rpy="0 0 0"/>
+    <mass value="0.00098125"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.06797 -0.0355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/lidar_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.06797 -0.0355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/lidar_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin xyz="-2.7755575615628914e-17 -2.723412584615392e-07 0.002499999999999898" rpy="0 0 0"/>
+    <mass value="0.00098125"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.15 0.06797 -0.008" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.15 0.06797 -0.008" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!--link name="lidar_back_1">
+  <inertial>
+    <origin xyz="-0.0025000000000001688 -2.72341258475417e-07 -1.249000902703301e-16" rpy="0 0 0"/>
+    <mass value="0.0009812500000000138"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3 0.06797 -0.0355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/lidar_back_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3 0.06797 -0.0355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mecanum_description/meshes/lidar_back_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link-->
+
+<joint name="lidar_joint_f" type="fixed">
+  <origin xyz="0.0 -0.078 0.0275" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_front_1"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="-0.15 -0.06797 0.008" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link_1"/>
+</joint>
+
+<!--joint name="lidar_joint_b" type="fixed">
+  <origin xyz="0.0 -0.078 0.0275" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_back_1"/>
+</joint-->
+
+<gazebo reference="imu_link_1">
+  <sensor name="imu_sensor" type="imu">
+   <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <ros>
+        <namespace>/demo</namespace>
+        <remapping>~/out:=imu</remapping>
+      </ros>
+      <initial_orientation_as_reference>false</initial_orientation_as_reference>
+    </plugin>
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu>
+  </sensor>
+</gazebo>
+
+<!--END IMU, LIDAR -->
+
+<!--Planar Move Plugin (Omnidirectional motion)-->
+
+<!-- root link, on the ground just below the model origin -->
+  <link name="base_footprint">
+   <visual>
+      <origin xyz="-2.7755575615628914e-17 -2.723412584615392e-07 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0001 0.0001 0.0001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0.15 0.06797 0.008" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+  
+
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+  </gazebo>
+  
+ <!--END Planar Move Plugin -->
+
+</robot>

@@ -3,6 +3,7 @@
 
 <xacro:include filename="$(find mecanum_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find mecanum_description)/urdf/mecanum.trans" />
+<xacro:include filename="$(find mecanum_description)/urdf/mecanum.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.15000000000002084 -0.06797027234125849 0.0355880237291439" rpy="0 0 0"/>
@@ -390,5 +391,7 @@
   <child link="gear2-r4_1"/>
   <axis xyz="0.852736 0.014028 0.522154"/>
 </joint>
+
+<!-- IMU, LIDAR moved to mecanum.gazebo -->
 
 </robot>
