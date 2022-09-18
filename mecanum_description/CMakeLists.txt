@@ -21,9 +21,11 @@ find_package(urdf REQUIRED)
 ################################################################################
 # Install
 ################################################################################
-install(DIRECTORY meshes urdf launch rviz
+install(DIRECTORY meshes urdf launch rviz worlds config
   DESTINATION share/${PROJECT_NAME}
 )
+
+# May need this https://drive.google.com/file/d/1Fr5YZZ-AfHgHUXmbimvBFEn6UF57ovhN/view
 
 ################################################################################
 # Macro for ament package
