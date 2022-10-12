@@ -1,0 +1,1464 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='robot'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>1.7e-05 -1e-06 0.043584 0 -0 0</pose>
+          <mass>8.77909</mass>
+          <inertia>
+            <ixx>0.0307088</ixx>
+            <ixy>1.50073e-06</ixy>
+            <ixz>1.20974e-06</ixz>
+            <iyy>0.0853345</iyy>
+            <iyz>-7.95653e-08</iyz>
+            <izz>0.102806</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+          <pose>0.15 0.06797 0.008 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/base_link.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__imu_link_1_collision_1'>
+          <pose>0.15 0.06797 0.008 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/imu_link_1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__lidar_front_1_collision_2'>
+          <pose>0.15 0.05794 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/lidar_front_1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='base_footprint_visual'>
+          <pose>-0 -0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0001 0.0001 0.0001</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
+          <pose>0.15 0.06797 0.008 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/base_link.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__imu_link_1_visual_2'>
+          <pose>0.15 0.06797 0.008 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/imu_link_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__lidar_front_1_visual_3'>
+          <pose>0.15 0.05794 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/lidar_front_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <sensor name='imu_sensor' type='imu'>
+          <plugin name='imu_plugin' filename='libgazebo_ros_imu_sensor.so'>
+            <ros>
+              <namespace>/demo</namespace>
+              <remapping>~/out:=imu</remapping>
+            </ros>
+            <initial_orientation_as_reference>0</initial_orientation_as_reference>
+          </plugin>
+          <always_on>1</always_on>
+          <update_rate>100</update_rate>
+          <visualize>1</visualize>
+          <imu>
+            <angular_velocity>
+              <x>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0002</stddev>
+                  <bias_mean>7.5e-06</bias_mean>
+                  <bias_stddev>8e-07</bias_stddev>
+                </noise>
+              </x>
+              <y>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0002</stddev>
+                  <bias_mean>7.5e-06</bias_mean>
+                  <bias_stddev>8e-07</bias_stddev>
+                </noise>
+              </y>
+              <z>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0002</stddev>
+                  <bias_mean>7.5e-06</bias_mean>
+                  <bias_stddev>8e-07</bias_stddev>
+                </noise>
+              </z>
+            </angular_velocity>
+            <linear_acceleration>
+              <x>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.017</stddev>
+                  <bias_mean>0.1</bias_mean>
+                  <bias_stddev>0.001</bias_stddev>
+                </noise>
+              </x>
+              <y>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.017</stddev>
+                  <bias_mean>0.1</bias_mean>
+                  <bias_stddev>0.001</bias_stddev>
+                </noise>
+              </y>
+              <z>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.017</stddev>
+                  <bias_mean>0.1</bias_mean>
+                  <bias_stddev>0.001</bias_stddev>
+                </noise>
+              </z>
+            </linear_acceleration>
+          </imu>
+          <pose>0 0 0.016 0 -0 0</pose>
+        </sensor>
+        <sensor name='lidar' type='ray'>
+          <always_on>1</always_on>
+          <visualize>1</visualize>
+          <update_rate>5</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>360</samples>
+                <resolution>1</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>6.28</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.12</min>
+              <max>3.5</max>
+              <resolution>0.015</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </ray>
+          <plugin name='scan' filename='libgazebo_ros_ray_sensor.so'>
+            <ros>
+              <remapping>~/out:=scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>lidar_front_1</frame_name>
+          </plugin>
+          <pose>0.15 -0.01003 0.0355 0 -0 0</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rev_waist' type='revolute'>
+        <pose relative_to='base_footprint'>0.05925 0 0.079 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>Waist-r4_1</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Waist-r4_1'>
+        <pose relative_to='rev_waist'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.001372 0.006434 0.025889 0 -0 0</pose>
+          <mass>0.534096</mass>
+          <inertia>
+            <ixx>0.000353</ixx>
+            <ixy>-5e-06</ixy>
+            <ixz>-4.9e-05</ixz>
+            <iyy>0.000456</iyy>
+            <iyz>-4.1e-05</iyz>
+            <izz>0.000429</izz>
+          </inertia>
+        </inertial>
+        <collision name='Waist-r4_1_collision'>
+          <pose>0.09075 0.06797 -0.071 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Waist-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Waist-r4_1_visual'>
+          <pose>0.09075 0.06797 -0.071 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Waist-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rev_shoulder' type='revolute'>
+        <pose relative_to='Waist-r4_1'>0.013919 0.004 0.048876 0 -0 0</pose>
+        <parent>Waist-r4_1</parent>
+        <child>Arm_01-r4_1</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Arm_01-r4_1'>
+        <pose relative_to='rev_shoulder'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.007276 -0.009968 0.058292 0 -0 0</pose>
+          <mass>0.505447</mass>
+          <inertia>
+            <ixx>0.00085</ixx>
+            <ixy>0</ixy>
+            <ixz>-0.000107</ixz>
+            <iyy>0.000903</iyy>
+            <iyz>-1e-06</iyz>
+            <izz>8.7e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Arm_01-r4_1_collision'>
+          <pose>0.076831 0.06397 -0.119876 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_01-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Arm_01-r4_1_visual'>
+          <pose>0.076831 0.06397 -0.119876 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_01-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rev_elbow' type='revolute'>
+        <pose relative_to='Arm_01-r4_1'>0.015353 -0.0022 0.119168 0 -0 0</pose>
+        <parent>Arm_01-r4_1</parent>
+        <child>Arm_02_v3-r4_1</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Arm_02_v3-r4_1'>
+        <pose relative_to='rev_elbow'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.039213 0.010609 0.002415 0 -0 0</pose>
+          <mass>0.39461</mass>
+          <inertia>
+            <ixx>7.4e-05</ixx>
+            <ixy>-2e-06</ixy>
+            <ixz>-2e-05</ixz>
+            <iyy>0.000456</iyy>
+            <iyz>0</iyz>
+            <izz>0.000428</izz>
+          </inertia>
+        </inertial>
+        <collision name='Arm_02_v3-r4_1_collision'>
+          <pose>0.061478 0.06617 -0.239044 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_02_v3-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Arm_02_v3-r4_1_visual'>
+          <pose>0.061478 0.06617 -0.239044 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_02_v3-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rev_wrist' type='revolute'>
+        <pose relative_to='Arm_02_v3-r4_1'>0.089892 0.0107 -0.000159 0 -0 0</pose>
+        <parent>Arm_02_v3-r4_1</parent>
+        <child>Arm_03-r4_1</child>
+        <axis>
+          <xyz>0.998519 0 0.054413</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Arm_03-r4_1'>
+        <pose relative_to='rev_wrist'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.01938 -0.005114 0.006263 0 -0 0</pose>
+          <mass>0.129528</mass>
+          <inertia>
+            <ixx>2.1e-05</ixx>
+            <ixy>5e-06</ixy>
+            <ixz>-1e-06</ixz>
+            <iyy>3.9e-05</iyy>
+            <iyz>0</iyz>
+            <izz>3.1e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Arm_03-r4_1_collision'>
+          <pose>-0.028414 0.05547 -0.238885 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_03-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Arm_03-r4_1_visual'>
+          <pose>-0.028414 0.05547 -0.238885 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Arm_03-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rev_effector' type='revolute'>
+        <pose relative_to='Arm_03-r4_1'>0.029511 -0.013847 0.007027 0 -0 0</pose>
+        <parent>Arm_03-r4_1</parent>
+        <child>Gripper_base-r4_1</child>
+        <axis>
+          <xyz>0.001606 0.999564 -0.029478</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Gripper_base-r4_1'>
+        <pose relative_to='rev_effector'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.017263 9.7e-05 -0.017054 0 -0 0</pose>
+          <mass>0.123413</mass>
+          <inertia>
+            <ixx>4.2e-05</ixx>
+            <ixy>-7e-06</ixy>
+            <ixz>2.5e-05</ixz>
+            <iyy>5.7e-05</iyy>
+            <iyz>8e-06</iyz>
+            <izz>4.1e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Gripper_base-r4_1_collision'>
+          <pose>-0.057925 0.069317 -0.245912 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_base-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Gripper_base-r4_1_visual'>
+          <pose>-0.057925 0.069317 -0.245912 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_base-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='lgear' type='revolute'>
+        <pose relative_to='Gripper_base-r4_1'>0.031814 0.015753 -0.025566 0 -0 0</pose>
+        <parent>Gripper_base-r4_1</parent>
+        <child>gear2-r4_1</child>
+        <axis>
+          <xyz>0.852736 0.014028 0.522154</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='gear2-r4_1'>
+        <pose relative_to='lgear'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.007291 0.002733 -0.001447 0 -0 0</pose>
+          <mass>0.020142</mass>
+          <inertia>
+            <ixx>3e-06</ixx>
+            <ixy>-1e-06</ixy>
+            <ixz>1e-06</ixz>
+            <iyy>2e-06</iyy>
+            <iyz>1e-06</iyz>
+            <izz>2e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='gear2-r4_1_collision'>
+          <pose>-0.089739 0.053564 -0.220346 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/gear2-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='gear2-r4_1_visual'>
+          <pose>-0.089739 0.053564 -0.220346 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/gear2-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='lfinger_mimic' type='revolute'>
+        <pose relative_to='gear2-r4_1'>0.016111 0.017188 -0.02007 0 -0 0</pose>
+        <parent>gear2-r4_1</parent>
+        <child>Gripper_finger-r4_1</child>
+        <axis>
+          <xyz>0.852736 0.014028 0.522154</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Gripper_finger-r4_1'>
+        <pose relative_to='lfinger_mimic'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.010193 -0.00728 -0.024589 0 -0 0</pose>
+          <mass>0.0423698</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>1e-06</ixy>
+            <ixz>5e-06</ixz>
+            <iyy>1.3e-05</iyy>
+            <iyz>-2e-06</iyz>
+            <izz>5e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='Gripper_finger-r4_1_collision'>
+          <pose>-0.10585 0.036376 -0.200276 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_finger-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Gripper_finger-r4_1_visual'>
+          <pose>-0.10585 0.036376 -0.200276 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_finger-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rgear' type='revolute'>
+        <pose relative_to='Gripper_base-r4_1'>0.031771 -0.011136 -0.024773 0 -0 0</pose>
+        <parent>Gripper_base-r4_1</parent>
+        <child>gear1-r4_1</child>
+        <axis>
+          <xyz>0.852736 0.014028 0.522154</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='gear1-r4_1'>
+        <pose relative_to='rgear'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.007239 -0.002804 -0.001214 0 -0 0</pose>
+          <mass>0.0207367</mass>
+          <inertia>
+            <ixx>3e-06</ixx>
+            <ixy>1e-06</ixy>
+            <ixz>1e-06</ixz>
+            <iyy>2e-06</iyy>
+            <iyz>-1e-06</iyz>
+            <izz>2e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='gear1-r4_1_collision'>
+          <pose>-0.089696 0.080453 -0.221139 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/gear1-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='gear1-r4_1_visual'>
+          <pose>-0.089696 0.080453 -0.221139 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/gear1-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rfinger_mimic' type='revolute'>
+        <pose relative_to='gear1-r4_1'>0.016021 -0.018479 -0.018965 0 -0 0</pose>
+        <parent>gear1-r4_1</parent>
+        <child>Gripper_finger-r4_2</child>
+        <axis>
+          <xyz>-0.852736 -0.014028 -0.522154</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Gripper_finger-r4_2'>
+        <pose relative_to='rfinger_mimic'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.010302 0.005041 -0.025099 0 -0 0</pose>
+          <mass>0.0423698</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>-1e-06</ixy>
+            <ixz>6e-06</ixz>
+            <iyy>1.3e-05</iyy>
+            <iyz>1e-06</iyz>
+            <izz>4e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='Gripper_finger-r4_2_collision'>
+          <pose>-0.105717 0.098932 -0.202174 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_finger-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Gripper_finger-r4_2_visual'>
+          <pose>-0.105717 0.098932 -0.202174 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Gripper_finger-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_bl' type='revolute'>
+        <pose relative_to='base_footprint'>-0.105 0.078 0.038 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>Mecanum_Wheel_Assembly_Left-r4_1</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Mecanum_Wheel_Assembly_Left-r4_1'>
+        <pose relative_to='wheel_bl'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0 0.026897 1.5e-05 0 -0 0</pose>
+          <mass>0.95843</mass>
+          <inertia>
+            <ixx>0.000493</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000706</iyy>
+            <iyz>0</iyz>
+            <izz>0.000493</izz>
+          </inertia>
+        </inertial>
+        <collision name='Mecanum_Wheel_Assembly_Left-r4_1_collision'>
+          <pose>0.255 -0.01003 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Mecanum_Wheel_Assembly_Left-r4_1_visual'>
+          <pose>0.255 -0.01003 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_br' type='revolute'>
+        <pose relative_to='base_footprint'>-0.105 -0.078 0.038 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>Mecanum_Wheel_Assembly_Right-r4_2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Mecanum_Wheel_Assembly_Right-r4_2'>
+        <pose relative_to='wheel_br'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-1.5e-05 -0.026871 -0 0 -0 0</pose>
+          <mass>0.952524</mass>
+          <inertia>
+            <ixx>0.000492</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000705</iyy>
+            <iyz>0</iyz>
+            <izz>0.000492</izz>
+          </inertia>
+        </inertial>
+        <collision name='Mecanum_Wheel_Assembly_Right-r4_2_collision'>
+          <pose>0.255 0.14597 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Mecanum_Wheel_Assembly_Right-r4_2_visual'>
+          <pose>0.255 0.14597 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_fl' type='revolute'>
+        <pose relative_to='base_footprint'>0.105 0.078 0.038 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>Mecanum_Wheel_Assembly_Right-r4_1</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Mecanum_Wheel_Assembly_Right-r4_1'>
+        <pose relative_to='wheel_fl'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-1.5e-05 0.02687 0 0 -0 0</pose>
+          <mass>0.952524</mass>
+          <inertia>
+            <ixx>0.000492</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000705</iyy>
+            <iyz>0</iyz>
+            <izz>0.000492</izz>
+          </inertia>
+        </inertial>
+        <collision name='Mecanum_Wheel_Assembly_Right-r4_1_collision'>
+          <pose>0.045 -0.01003 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Mecanum_Wheel_Assembly_Right-r4_1_visual'>
+          <pose>0.045 -0.01003 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Right-r4_1.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_fr' type='revolute'>
+        <pose relative_to='base_footprint'>0.105 -0.078 0.038 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>Mecanum_Wheel_Assembly_Left-r4_2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='Mecanum_Wheel_Assembly_Left-r4_2'>
+        <pose relative_to='wheel_fr'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-1.5e-05 -0.026898 0 0 -0 0</pose>
+          <mass>0.95843</mass>
+          <inertia>
+            <ixx>0.000493</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000706</iyy>
+            <iyz>0</iyz>
+            <izz>0.000493</izz>
+          </inertia>
+        </inertial>
+        <collision name='Mecanum_Wheel_Assembly_Left-r4_2_collision'>
+          <pose>0.045 0.14597 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Mecanum_Wheel_Assembly_Left-r4_2_visual'>
+          <pose>0.045 0.14597 -0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://mecanum_description/meshes/Mecanum_Wheel_Assembly_Left-r4_2.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>0</static>
+      <plugin name='object_controller' filename='libgazebo_ros_planar_move.so'>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>20.0</odometryRate>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+      </plugin>
+      <pose>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='cafe_table'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='surface'>
+          <pose>0 0 0.755 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.913 0.913 0.04</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='column'>
+          <pose>0 0 0.37 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.042 0.042 0.74</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base'>
+          <pose>0 0 0.02 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.56 0.56 0.04</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cafe_table/meshes/cafe_table.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>2.02699 -2.05393 0 0 -0 0</pose>
+    </model>
+    <model name='cafe_table_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='surface'>
+          <pose>0 0 0.755 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.913 0.913 0.04</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='column'>
+          <pose>0 0 0.37 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.042 0.042 0.74</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base'>
+          <pose>0 0 0.02 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.56 0.56 0.04</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cafe_table/meshes/cafe_table.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>2.16246 1.95108 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>43 464000000</sim_time>
+      <real_time>240 636406975</real_time>
+      <wall_time>1664964666 289652809</wall_time>
+      <iterations>43464</iterations>
+      <model name='cafe_table'>
+        <pose>2 -2 -0.71 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2 -2 -0.71 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cafe_table_0'>
+        <pose>2 2 -0.71 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2 2 -0.71 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='robot'>
+        <pose>-0.001314 0.003314 0.001872 1.8e-05 0.000191 -0.061535</pose>
+        <scale>1 1 1</scale>
+        <link name='Arm_01-r4_1'>
+          <pose>0.07104 0.005643 0.129734 0.000622 1.46096 0.146205</pose>
+          <velocity>0.00306 -0.002147 0.003113 0.017153 0.038743 0.008114</velocity>
+          <acceleration>2.1646 -2.25811 2.72239 3.09434 0.270344 3.02873</acceleration>
+          <wrench>1.09409 -1.14136 1.37603 0 -0 0</wrench>
+        </link>
+        <link name='Arm_02_v3-r4_1'>
+          <pose>0.190221 0.020895 0.127536 3.14144 1.10622 -2.99614</pose>
+          <velocity>0.002862 -0.001142 -0.001213 0.019349 0.025652 0.008135</velocity>
+          <acceleration>1.13975 0.376984 0.163922 -2.63259 -1.04542 -2.10838</acceleration>
+          <wrench>0.449757 0.148762 0.064685 0 -0 0</wrench>
+        </link>
+        <link name='Arm_03-r4_1'>
+          <pose>0.148678 0.025623 0.047244 -3.11586 1.10637 -2.99979</pose>
+          <velocity>0.000668 0.00024 -6.2e-05 -0.008077 0.013495 -0.017807</velocity>
+          <acceleration>0.888909 0.568478 0.149187 -3.08455 0.107576 -1.95931</acceleration>
+          <wrench>0.115139 0.073634 0.019324 0 -0 0</wrench>
+        </link>
+        <link name='Gripper_base-r4_1'>
+          <pose>0.143473 0.010714 0.017873 0.028658 -0.59462 0.147721</pose>
+          <velocity>-0.00025 0.000448 -3.2e-05 0.025632 -0.00954 -0.014869</velocity>
+          <acceleration>1.39042 0.697226 -3.11744 1.0034 0.803982 1.82475</acceleration>
+          <wrench>0.171596 0.086047 -0.384732 0 -0 0</wrench>
+        </link>
+        <link name='Gripper_finger-r4_1'>
+          <pose>0.179882 0.063802 0.017228 -0.455879 -0.721406 -0.481411</pose>
+          <velocity>0.000839 0.000272 0.001942 0.03278 -0.047955 -0.035979</velocity>
+          <acceleration>-2.3616 0.579916 1.35589 -0.989656 0.230664 2.15363</acceleration>
+          <wrench>-0.100061 0.024571 0.057449 0 -0 0</wrench>
+        </link>
+        <link name='Gripper_finger-r4_2'>
+          <pose>0.19376 0.035939 0.012822 -0.70362 -0.902596 -0.856423</pose>
+          <velocity>-4.6e-05 -3.2e-05 0.001042 0.012639 0.023346 0.002735</velocity>
+          <acceleration>0.393038 0.021298 -8.69003 0.329542 0.188317 1.78285</acceleration>
+          <wrench>0.016653 0.000902 -0.368195 0 -0 0</wrench>
+        </link>
+        <link name='Mecanum_Wheel_Assembly_Left-r4_1'>
+          <pose>-0.101311 0.087622 0.039894 -2.3e-05 -0.121612 -0.061532</pose>
+          <velocity>0.001565 -0.000498 0.008051 0.012416 0.038734 0.000964</velocity>
+          <acceleration>-0.566787 -1.14826 16.5455 2.16342 -0.864788 -2.82767</acceleration>
+          <wrench>-0.543226 -1.10053 15.8577 0 -0 0</wrench>
+        </link>
+        <link name='Mecanum_Wheel_Assembly_Left-r4_2'>
+          <pose>0.098698 -0.080996 0.039851 4.5e-05 -0.155684 -0.061543</pose>
+          <velocity>0.001777 -0.000332 0.000376 0.00851 0.045732 0.00123</velocity>
+          <acceleration>-0.490265 -0.898953 0.378464 -0.441168 -0.383684 0.220935</acceleration>
+          <wrench>-0.469885 -0.861584 0.362732 0 -0 0</wrench>
+        </link>
+        <link name='Mecanum_Wheel_Assembly_Right-r4_1'>
+          <pose>0.108292 0.074707 0.039854 -5.2e-05 0.234968 -0.061545</pose>
+          <velocity>0.001584 -0.000343 0.00432 0.009101 0.038993 0.001615</velocity>
+          <acceleration>-0.610444 -1.2428 8.95227 -1.13333 -1.48669 -1.77334</acceleration>
+          <wrench>-0.581462 -1.1838 8.52725 0 -0 0</wrench>
+        </link>
+        <link name='Mecanum_Wheel_Assembly_Right-r4_2'>
+          <pose>-0.110904 -0.068082 0.03989 2.4e-05 -0.268344 -0.061541</pose>
+          <velocity>0.001739 -0.000486 0.003908 0.012179 0.043858 0.000545</velocity>
+          <acceleration>-0.49428 -0.987458 7.17301 0.863759 0.400389 -3.02849</acceleration>
+          <wrench>-0.470813 -0.940577 6.83247 0 -0 0</wrench>
+        </link>
+        <link name='Waist-r4_1'>
+          <pose>0.057839 -0.000332 0.08086 6e-05 0.000184 0.145588</pose>
+          <velocity>0.002327 -0.00111 0.003189 0.022946 0.015883 0.008113</velocity>
+          <acceleration>1.39384 -3.84253 6.58022 2.1907 0.696053 2.07064</acceleration>
+          <wrench>0.744442 -2.05228 3.51447 0 -0 0</wrench>
+        </link>
+        <link name='base_footprint'>
+          <pose>-0.001314 0.003314 0.001872 1.8e-05 0.000191 -0.061535</pose>
+          <velocity>0.001062 0.000645 0.004217 0.023426 0.015777 0.001162</velocity>
+          <acceleration>-0.350912 -1.16127 8.36482 -1.39331 -1.31916 0.48601</acceleration>
+          <wrench>-3.08069 -10.1949 73.4356 0 -0 0</wrench>
+        </link>
+        <link name='gear1-r4_1'>
+          <pose>0.184936 0.006348 0.014895 0.8118 -0.959292 1.24723</pose>
+          <velocity>-0.000241 -7.2e-05 0.000322 0.017167 -0.009176 -0.004624</velocity>
+          <acceleration>1.72483 0.323296 -5.88383 2.98379 1.0412 2.14146</acceleration>
+          <wrench>0.035767 0.006704 -0.122011 0 -0 0</wrench>
+        </link>
+        <link name='gear2-r4_1'>
+          <pose>0.181025 0.032963 0.0149 0.457916 -0.694978 0.701745</pose>
+          <velocity>0.000153 0.000118 0.00087 0.023779 -0.050301 -0.037933</velocity>
+          <acceleration>-0.210287 0.377076 -3.24386 1.53799 0.978384 1.77365</acceleration>
+          <wrench>-0.004236 0.007595 -0.065338 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>6.64545 0.626511 4.77006 0 0.529796 -3.10298</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
